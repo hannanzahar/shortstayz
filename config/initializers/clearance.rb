@@ -1,3 +1,5 @@
 Clearance.configure do |config|
   	config.mailer_sender = "reply@example.com"
-  end
+ 	config.routes = false
+ 	config.redirect_url = "/"
+end

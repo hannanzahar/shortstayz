@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem "clearance"
 # gem figaro is to securely configure data. Not to be exposed and hackable
 gem "figaro"
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

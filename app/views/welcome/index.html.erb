@@ -1,2 +1,21 @@
 <h1>Welcome home</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '486582924883427',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
