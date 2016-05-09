@@ -19,11 +19,16 @@
 <body>
   <div id="header">
     <% if signed_in? -%>
-    <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+      <%= link_to t(".home"), welcome_index_path %> |
+      <%= link_to t(".dashboard"), '/profile' %> |
+      <%= link_to t(".new_listing"), new_listing_path%> |
+      <%= link_to t(".book_now"), listings_path%> |
+      <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else -%>
-    <%= link_to t(".new_listing"), new_listing_path, method: :new %> |
-    <%= link_to t(".sign_in"), sign_in_path %> |
-    <%= link_to 'Login via Facebook', '/auth/facebook' %>
+      <%= link_to t(".home"), welcome_index_path %> |
+      <%= link_to t(".new_listing"), new_listing_path, method: :new %> |
+      <%= link_to t(".sign_in"), sign_in_path %> |
+      <%= link_to 'Login via Facebook', '/auth/facebook' %>
     <% end -%>
   </div>
 

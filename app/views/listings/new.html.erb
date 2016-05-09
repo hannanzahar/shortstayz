@@ -1,19 +1,61 @@
 <div id="clearance">
   <h2><%= t(".title") %></h2>
 
-  <%= form_for @user do |form| %>
+  <%= form_for @listing do |form| %>
 
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %><br>
+    <%= form.label :name %>
+    <%= form.text_field :name %><br>
 
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %><br>
+    <%= form.label :description %>
+    <%= form.text_field :description %><br>
 
-    <%= form.label :email %>
-	<%= form.text_field :email, type: 'email' %><br>
+    <%= form.label :country %>
+    <%= form.text_field :country %><br>
 
-	<%= form.label :password %>
-	<%= form.password_field :password %><br>
+    <%= form.label :state %>
+    <%= form.text_field :state %><br>
+
+    <%= form.label :city %>
+    <%= form.text_field :city %><br>
+
+    <%= form.label :address %>
+    <%= form.text_field :address, placeholder: 'Street address' %><br>
+
+    <%= form.label :property_type %>
+    <%= form.select :property_type, [
+      ['Apartment','apartment'],
+      ['House','house'],['Cabin','cabin'],
+      ['Loft','loft']] %><br>
+
+    <%= form.label :room_type %>
+    <%= form.select :room_type, [
+      ['Whole House','whole_house'],
+      ['Private Room','private_room'],
+      ['Shared Room','shared_room']] %><br>
+
+    <%= form.label :accomodates %>
+    <%= form.select :num_people, [
+      ['1','1'],['2','2'],
+      ['3','3'],['4','4'],
+      ['5','5']] %><br>
+
+    <%= form.label :bedrooms %>
+    <%= form.select :num_bedrooms, [
+      ['1','1'],['2','2'],
+      ['3','3'],['4','4'],
+      ['5','5']] %><br>
+
+    <%= form.label :beds %>
+    <%= form.select :num_beds, [
+      ['1','1'],['2','2'],
+      ['3','3'],['4','4'],
+      ['5','5']] %><br>
+
+    <%= form.label :bathrooms %>
+    <%= form.select :num_bathrooms, [
+      ['1','1'],['2','2'],
+      ['3','3'],['4','4'],
+      ['5','5']] %><br>
 
     <div class="submit-field">
       <%= form.submit %>

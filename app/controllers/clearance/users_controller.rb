@@ -25,6 +25,7 @@ class Clearance::UsersController < Clearance::BaseController
     end
   end
 
+
   private
 
   def avoid_sign_in

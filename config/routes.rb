@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'welcome/index'
-  resources :users, only: [:show, :edit, :update, :destroy] 
+  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :listings
+
+#to create a new dashboard/profile for user
+  get '/profile', to: "users#profile", as: "my_profile"
   
   root 'welcome#index'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
