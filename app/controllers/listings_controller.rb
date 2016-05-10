@@ -1,8 +1,12 @@
 class ListingsController < ApplicationController
 
 	def index
-		@listing = Listing.all
 		@user = current_user
+		if params[:tag]
+			@listing = Listing.tagged_with(params[:tag])
+		else
+			@listing = Listing.all
+		end
 	end
 
 	def new
@@ -33,10 +37,19 @@ class ListingsController < ApplicationController
 	end
 
 	def edit
-
+		# byebug
+		@listing = Listing.find(params[:id])
 	end
 
 	def update
+		@listing = Listing.find(params[:id])
+		@listing.update(listing_params)
+			if @listing.save
+				redirect_to listing_path
+			else
+				flash[:warning] = "WHYYYY WHYYY"
+				render :edit
+			end
 	end
 
 	def destroy
@@ -56,7 +69,8 @@ class ListingsController < ApplicationController
 	private
 
 	 def listing_params
-	   params.require(:listing).permit(:name, :description, :country, :state, :city, :address, :property_type, :room_type, :num_people, :num_bedrooms, :num_beds, :num_bathrooms)
+	   params.require(:listing).permit(:name, :description, :country, :state, :city, :address, :property_type, :room_type, :num_people, :num_bedrooms, :num_beds, :num_bathrooms, :price, :tag_list)
+
 	 end
 
 end

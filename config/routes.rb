@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 #to create a new dashboard/profile for user
   get '/profile', to: "users#profile", as: "my_profile"
   
+  get 'tags/:tag', to: 'listings#index', as: :tag
+
   root 'welcome#index'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   

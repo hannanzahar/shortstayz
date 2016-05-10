@@ -13,6 +13,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+#gem that gives a tagging feature
+gem 'acts-as-taggable-on'
+# gem to gives access on uploading stuffs
+gem 'carrierwave'
 
 # gem clearance allows the usage of signin/signup/signout/password verification through the gem itself
 gem "clearance"

@@ -1,2 +1,44 @@
 <h1>Listings#edit</h1>
-<p>Find me in app/views/listings/edit.html.erb</p>
+
+<div id="edit_list">
+	<h2>Edit stuffs here</h2>
+	<%= form_for @listing do |form| %>
+
+		<%= form.label :name %>
+		<%= form.text_field :name %><br>
+
+		<%= form.label :description %>
+		<%= form.text_field :description %><br>
+
+		<%= form.label :property_type %>
+		<%= form.text_field :property_type %><br>
+
+		<%= form.label :room_type %>
+		<%= form.text_field :room_type %><br>
+
+		<%= form.label :accomodates %>
+		<%= form.text_field :num_people %><br>
+
+		<%= form.label :bedrooms %>
+		<%= form.text_field :num_bedrooms %><br>
+
+		<%= form.label :beds %>
+		<%= form.text_field :num_beds %><br>
+
+		<%= form.label :bathrooms %>
+		<%= form.text_field :num_bathrooms %><br>
+
+		<%= form.label :tags %>
+		<%= form.text_field :tag_list %><br>
+
+		<%= form.label :price %>
+		<%= form.text_field :price %><br>
+
+		<div class="submit-field">
+			<%= form.submit %>
+		</div>
+
+	<% end %>
+</div>
+
+
