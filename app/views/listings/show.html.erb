@@ -2,6 +2,13 @@
 <p>Find me in app/views/listings/show.html.erb</p>
 
 <div>
+
+	<div class="image">
+	<%@listing.images.each do |x|%>
+		<img class="pic img-cricle" src="<%= x %>" alt="listing_img">
+	<% end %>
+	</div>
+
 	<strong>Name:</strong>
 	<%= @listing.name %><br>
 

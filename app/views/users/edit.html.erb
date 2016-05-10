@@ -3,6 +3,9 @@
 
   <%= form_for @user do |form| %>
 
+    <%= form.label :profile_picture %>
+    <%= form.file_field :avatar %><br>
+
     <%= form.label :first_name %>
     <%= form.text_field :first_name %><br>
 

@@ -3,4 +3,5 @@ class Listing < ActiveRecord::Base
 	# attr_accessible :content, :name, :tag_list
 	has_many :tags
 	acts_as_taggable
+	mount_uploaders :images, ImageUploader
 end

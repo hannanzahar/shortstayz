@@ -18,3 +18,34 @@
  	width: 300px;
  	color: blue;
  }
+
+
+/*----------------profile picture-------------------*/
+.avatar {
+  position: relative;
+  margin-top: 15px;
+  z-index: 100;
+}
+
+.avatar img {
+  width: 150px;
+  height: 150px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/*----------------listing_images-------------------*/
+.image {
+  position: relative;
+  margin-top: 15px;
+  z-index: 100;
+}
+
+.image img {
+  width: 400px;
+  height: 400px;
+/*  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;*/
+}

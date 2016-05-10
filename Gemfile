@@ -16,8 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 #gem that gives a tagging feature
 gem 'acts-as-taggable-on'
 # gem to gives access on uploading stuffs
-gem 'carrierwave'
 
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # gem clearance allows the usage of signin/signup/signout/password verification through the gem itself
 gem "clearance"
 # gem figaro is to securely configure data. Not to be exposed and hackable
