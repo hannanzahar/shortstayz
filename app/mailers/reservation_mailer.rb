@@ -1,5 +1,4 @@
 class ReservationMailer < ApplicationMailer
-	# default from: 'hannanzahar@gmail.com'
 
 	def booking_email(customer_id, host_id, reservation_id)
 		# byebug
