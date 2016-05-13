@@ -34,11 +34,14 @@ class ListingsController < ApplicationController
 
 	def show
 		@listing = Listing.find(params[:id])
+		@user == current_user
+		@reserve = @listing.reservations.new
 	end
 
 	def edit
 		# byebug
 		@listing = Listing.find(params[:id])
+
 	end
 
 	def update
@@ -69,7 +72,12 @@ class ListingsController < ApplicationController
 	private
 
 	 def listing_params
-	   params.require(:listing).permit(:name, :description, :country, :state, :city, :address, :property_type, :room_type, :num_people, :num_bedrooms, :num_beds, :num_bathrooms, :price, :tag_list, {images: []})
+	   params.require(:listing).permit(
+	   	:name, :description, :country,
+	   	:state, :city, :address, :property_type,
+	   	:room_type, :num_people, :num_bedrooms, 
+	   	:num_beds, :num_bathrooms, :price, 
+	   	:tag_list, {images: []}, :reservations)
 
 	 end
 

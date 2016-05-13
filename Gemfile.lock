@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: b893859067d6aea497809ace68293633e1d64672
+  revision: ef0d36a7c195621d8d7d4c769a47a9aee6f64d95
   specs:
     carrierwave (0.11.0)
       activemodel (>= 4.0.0)
@@ -52,8 +52,8 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (8.2.5)
-    clearance (1.14.0)
+    byebug (9.0.0)
+    clearance (1.14.1)
       bcrypt
       email_validator (~> 1.4)
       rails (>= 3.1)
@@ -102,6 +102,7 @@ GEM
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
+    mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.12.0)
@@ -176,7 +177,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.2)
+    tilt (2.0.3)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -203,6 +204,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   omniauth
   omniauth-facebook
   pg (~> 0.15)

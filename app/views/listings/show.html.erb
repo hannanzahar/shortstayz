@@ -1,14 +1,24 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
-
 <div>
+<%= form_for [@listing, @reserve], html: { autocomplete: 'off' } do |book| %>
+	<%= book.hidden_field :listing_id, value: @listing.id %>
+	<%= book.text_field :dates, placeholder: 'Check In -Check Out' %>
+	<%= book.submit 'Book now' %>
+<% end %>
+</div>
 
-	<div class="image">
-	<%@listing.images.each do |x|%>
-		<img class="pic img-cricle" src="<%= x %>" alt="listing_img">
-	<% end %>
+
+<div class="image carousel-list slide carousel-inner listing_image">
+	<%@listing.images.each.with_index do |x, i|%>
+		<% if i == 1 %>
+			<div class="item active">
+		<% else %>
+			<div class='item'>
+		<% end %>
+		<%= image_tag x.normal %>
 	</div>
-
+	<% end %>
+</div>
+<div>
 	<strong>Name:</strong>
 	<%= @listing.name %><br>
 
@@ -41,5 +51,9 @@
 
 	<strong>Tags:</strong>
 	<%= @listing.tag_list %><br>
-
 </div>
+
+</hr>
+
+
+

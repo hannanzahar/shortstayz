@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to shortstayz.com, <%= @customer.first_name %></h1>
+    <p>
+      You have successfully book a place to stay with shortstayz.com,
+      your destination is: <%= @listing.name %>.<br>
+      check-in: <%= @reservation.check_in %><br>
+      check-out: <%= @reservation.check_out %><br>
+      your username is: <%= @customer.first_name %>.<br>
+    </p>
+    <p>
+      Check your travel details here <%= @url %>.
+    </p>
+    <p>Have a great day at <%= @listing.name %>!</p>
+  </body>
+</html>
