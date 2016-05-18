@@ -25,8 +25,7 @@ class ListingsController < ApplicationController
   # end
 
 	def create
-		# byebug
-		@listing = current_user.listings.new(listing_params)
+		@listing = current_user.listings.new(new_params)
 		@listing.save
 		redirect_to listing_path(@listing)
 	end
@@ -34,7 +33,7 @@ class ListingsController < ApplicationController
 
 	def show
 		@listing = Listing.find(params[:id])
-		@user == current_user
+		@user = current_user
 		@reserve = @listing.reservations.new
 	end
 
@@ -46,7 +45,7 @@ class ListingsController < ApplicationController
 
 	def update
 		@listing = Listing.find(params[:id])
-		@listing.update(listing_params)
+		@listing.update(new_params)
 			if @listing.save
 				redirect_to listing_path
 			else
@@ -77,8 +76,13 @@ class ListingsController < ApplicationController
 	   	:state, :city, :address, :property_type,
 	   	:room_type, :num_people, :num_bedrooms, 
 	   	:num_beds, :num_bathrooms, :price, 
-	   	:tag_list, {images: []}, :reservations)
+	   	{tag_list: []}, {images: []}, :reservations)
 
 	 end
 
+	 def new_params
+	 	hash = listing_params.dup
+		hash[:tag_list] = hash[:tag_list].join(',')
+		return hash
+	 end
 end

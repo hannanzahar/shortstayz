@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
+  # get 'search/search'
+
+  get 'search', to: 'search#search'
+
   resources :listings do
     resources :reservations
+  end
+
+  resources :reservations, only: [] do
+    resources :payments, only: [:new, :create]
   end
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -24,6 +32,8 @@ Rails.application.routes.draw do
   get '/profile', to: "users#profile", as: "my_profile"
   
   get 'tags/:tag', to: 'listings#index', as: :tag
+
+
 
   root 'welcome#index'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"

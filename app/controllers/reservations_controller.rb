@@ -17,6 +17,7 @@ class ReservationsController < ApplicationController
 
   def show
     @listing = @reserve.listing
+    @client_token = Braintree::ClientToken.generate
   end
 
   def create
@@ -33,21 +34,24 @@ class ReservationsController < ApplicationController
     check_in = DateTime.parse(check_in_date).strftime("%d-%m-%Y")
     check_out = DateTime.parse(check_out_date).strftime("%d-%m-%Y")
 
-
-
     @reserve = Reservation.new(check_in: check_in, check_out: check_out, listing_id: params[:reservation][:listing_id])
     @reserve.user_id = current_user.id
     # byebug
-    
-    # byebug
+
+    #booking days is calculated from check-in date until check-out date
+    @booking_days = @reserve.check_out - @reserve.check_in
+    @booking_days.to_i
+    @reserve.amount = @booking_days.to_i * @reserve.listing.price
+
     if @reserve.save
       @customer = @reserve.user
       @host = User.find(@reserve.listing.user_id)
       reserve_id = @reserve.id
-      ReservationMailer.booking_email(@customer, @host, reserve_id).deliver_now
+      ReservationJob.perform_later(@customer, @host, reserve_id)
       redirect_to listing_reservation_path(params[:listing_id], @reserve)
+      flash.now[:success]="Yeayyy, next paylah"
     else
-      flash.now[:warning] = "Date is unavailable, perhaps another?"
+      flash.now[:danger] = "Date is unavailable, perhaps another?"
       render :index
     end
   end

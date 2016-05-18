@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
+<script src="https://js.braintreegateway.com/js/braintree-2.24.0.min.js"></script>
       <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" 
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
@@ -77,7 +77,7 @@
   
     <div id="flash">
       <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
+        <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
     </div>
     

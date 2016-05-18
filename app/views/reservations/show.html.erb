@@ -1,50 +1,3 @@
-<p>
-	<div>
-		<div class="image">
-		<%@listing.images.each do |x|%>
-			<img class="pic img-cricle img-responsive" src="<%= x %>" alt="listing_img">
-		<% end %>
-		</div>
-
-		<strong>Name:</strong>
-		<%= @listing.name %><br>
-
-		<strong>Description:</strong>
-		<%= @listing.description %><br>
-
-		<strong>Address:</strong>
-		<%= @listing.address %><br>
-
-		<strong>Property type:</strong>
-		<%= @listing.property_type %><br>
-
-		<strong>Room:</strong>
-		<%= @listing.room_type %><br>
-
-		<strong>Accomodates:</strong>
-		<%= @listing.num_people %><br>
-
-		<strong>Bedrooms:</strong>
-		<%= @listing.num_bedrooms %><br>
-
-		<strong>Beds:</strong>
-		<%= @listing.num_beds %><br>
-
-		<strong>Bathrooms:</strong>
-		<%= @listing.num_bathrooms %><br>
-
-		<strong>Price:</strong>
-		<%= @listing.price %><br>
-
-		<strong>Tags:</strong>
-		<%= @listing.tag_list %><br>
-
-	</div>
-</p>
-
-</hr>
-
-
 <div class="jumbotron">
 	<strong>Booking id number:</strong>
 	<%= @reserve.id %><br>
@@ -68,3 +21,30 @@
 		<td><%= @reserve.check_out %></td><br>
 	</tr>
 </table>
+
+<center>
+    <div style="margin-top: 40px; width: 60%;">
+        <h3> Total booking price: <%= @reserve.amount %>  </h3>
+
+     <!--    <form id="checkout" method="post" action="/reservations/<%= @reserve.id %>/payments">
+            <div id="payment-form"></div>
+            <input type="submit" value="Pay $<%= @reserve.amount %>">
+        </form> -->
+
+        <%= form_for Payment.new, url: reservation_payments_path(@reserve) do |f| %>
+        	<div id="payment-form"></div>
+        	<%= f.submit %>
+        <% end %>
+
+        
+
+        <script type='text/javascript'>function setupBT() {braintree.setup("<%= @client_token %>", "dropin", { container: "payment-form" });}
+
+        	if (window.addEventListener)
+		    window.addEventListener("load", setupBT, false);
+		  else if (window.attachEvent)
+		    window.attachEvent("onload", setupBT);
+		  else window.onload = setupBT;
+        </script>
+    </div>
+</center>

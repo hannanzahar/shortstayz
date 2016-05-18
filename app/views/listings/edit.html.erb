@@ -26,35 +26,55 @@
 	    <%= form.select :num_people, [
 	      ['1','1'],['2','2'],
 	      ['3','3'],['4','4'],
-	      ['5','5']] %><br>
+	      ['5','5'],['6','6'],
+	      ['7','7'],['8','8'],
+	      ['9','9'],['10','10']] %><br>
 
 		<%= form.label :bedrooms %>
 		<%= form.select :num_bedrooms, [
 	      ['1','1'],['2','2'],
 	      ['3','3'],['4','4'],
-	      ['5','5']] %><br>
+	      ['5','5'],['6','6'],
+	      ['7','7'],['8','8'],
+	      ['9','9'],['10','10']] %><br>
 
 		<%= form.label :beds %>
 		<%= form.select :num_beds, [
 	      ['1','1'],['2','2'],
 	      ['3','3'],['4','4'],
-	      ['5','5']] %><br>
+	      ['5','5'],['6','6'],
+	      ['7','7'],['8','8'],
+	      ['9','9'],['10','10']] %><br>
 
 		<%= form.label :bathrooms %>
 		<%= form.select :num_bathrooms, [
 	      ['1','1'],['2','2'],
 	      ['3','3'],['4','4'],
-	      ['5','5']] %><br>
+	      ['5','5'],['6','6'],
+	      ['7','7'],['8','8'],
+	      ['9','9'],['10','10']] %><br>
 
 		<%= form.label :price_overnight %>
     	<%= form.number_field :price %>
-    	
-		<div class="field">
-	      <%= form.label :tag_list %><br />
-	      <%= form.text_field :tag_list %>
-	    </div>
 
-		
+		<div class="field">
+			<p><%= form.label :tags %></p>
+			<%= form.check_box :tag_list, {multiple: true}, 'Breakfast', nil %> 
+				<b>Breakfast</b> <br/>
+			<%= form.check_box :tag_list, {multiple: true}, 'Lunch', nil %> 
+			<b>Lunch</b> <br/>
+			<%= form.check_box :tag_list, {multiple: true}, 'Dinner', nil %> 
+			<b>Dinner</b> <br/>
+			<%= form.check_box :tag_list, {multiple: true}, 'Cafe', nil %> <b>Cafe</b> <br/>
+			<%= form.check_box :tag_list, {multiple: true}, 'Family', nil %> 
+			<b>Family</b> <br/>
+			<%= form.check_box :tag_list, {multiple: true}, 'Single', nil %> 
+			<b>Single</b> <br/>
+			<%= form.check_box :tag_list, {multiple: true}, 'Security Guard', nil %>
+			<b>Security</b> <br/>
+			<%= form.check_box :tag_list, {multiple: true}, 'TV', nil %> 
+			<b>Teevee</b> <br/>
+	    </div>
 
 		<%= form.file_field :images, multiple: true %><br>
 
@@ -64,5 +84,3 @@
 
 	<% end %>
 </div>
-
-

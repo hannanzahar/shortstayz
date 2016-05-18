@@ -23,9 +23,22 @@ gem "mini_magick"
 gem "clearance"
 # gem figaro is to securely configure data. Not to be exposed and hackable
 gem "figaro"
+# background jobs for mailing system
+gem "sidekiq"
+# gem for using braintree API
+gem "braintree"
+# gem to get authentication from facebook
 gem 'omniauth'
 gem 'omniauth-facebook'
+# search smarter with elasticsearch ;)
+gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+# country select gem
 gem 'country_select'
+# gem compass for slider
+gem 'compass-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
