@@ -1,43 +1,27 @@
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '486582924883427',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
-
-  (function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "//connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-</script>
-
-
-<!-- =========== Background first =========== -->
-
-
-<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="item active">
-      <div class= "carousel-caption">
-      </div>         
-      <img src="https://khaliladis.files.wordpress.com/2014/11/2012-01-13-jb-causeway-172.jpg" alt="First slide" > 
-    </div>
-      </div> 
-    </div>
-  </div>
-</div> -->
-
-
 <div>
-  <img src="https://khaliladis.files.wordpress.com/2014/11/2012-01-13-jb-causeway-172.jpg" style="width:100%; height:500px;">
-</div>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   <div class="carousel-inner">
+     <div class="item active">
+       <div class= "carousel-caption">
+       </div>         
+       <%= image_tag("jb.jpg") %> 
+     </div>
+     <div class="item">
+       <%= image_tag("kl.jpg") %>
+       <div class= "carousel-caption">
+       </div> 
+     </div>
+     <div class="item">
+       <%= image_tag("mulu.jpg") %>
+       <div class= "carousel-caption">
+       </div> 
+     </div>
+   </div>
+   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+   <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+  </div>
 
-<div class="search">
+  <div class="search">
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -100,47 +84,54 @@
       </div>
     </div>
   </div>
+
+  </br>
+
+  <section id="explore" style="padding-bottom: 20px; padding-top: 20px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">How it works </h2>
+          <h3 class="section-subheading text-muted" style="padding-bottom: 20px">See where people are traveling, all around Malaysia</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <h4>New York City</h4>
+          <%= image_tag("bukitbintang.jpg", size: '335x344', class: "img-circle") %>
+          <p class="text-muted" style="padding-top: 50px">Home to the Empire State Building, Times Square, Statue of Liberty and other iconic sites, New York City is a fast-paced, globally influential center of art, culture, fashion and finance.</p>
+        </div>
+        <div class="col-md-4">
+          <h4>Reykjavik</h4>
+          <%= image_tag("gunungkinabalu.jpg", size: '335x344',class: "img-circle") %>
+          <p class="text-muted" style="padding-top: 50px">Iceland, a Nordic island nation, is defined by its dramatic volcanic landscape of geysers, hot springs, waterfalls, glaciers and black-sand beaches. The capital, Reykjavik, home to the majority of the population, runs on geothermal power and offers a renowned nightlife scene as well as Viking history museums.</p>
+        </div>
+        <div class="col-md-4">
+          <h4>Tokyo</h4>
+          <%= image_tag("cameronhighlands.jpg", size: '335x344', class: "img-circle") %>
+          <p class="text-muted" style="padding-top: 50px">Tokyo, Japan's bustling capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers and anime shops to cherry trees and temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding forests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
+<script>
 
-<!-- =========== Background second =========== -->
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '486582924883427',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
 
+  (function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
 
-<div id="img-slider">
-  <div class="row">
-    <div class="col lrg-12">
-
-      <div class="slider-wrap">
-        <div class="slider">
-          <div class="outer">
-            <div class="tray">
-              <section id="all-articles" style="left:-100%;"><img src="http://placehold.it/650x500/2ecc71/ffffff"></section>
-              <section id="featured-articles" style="left:0%;" class="current"><img src="http://placehold.it/650x500/e74c3c/ffffff"></section>
-              <section id="popular-articles" style="left:100%;"><img src="http://placehold.it/650x500/3498db/ffffff"></section>
-              <section id="new-articles" style="left:200%;"><img src="http://placehold.it/650x500/f39c12/ffffff"></section>
-            </div>
-          </div>
-          <div class="mask left">
-            <a href="#" class="arrow left"><span>All</span></a>
-          </div>
-          <div class="mask right">
-            <a href="#" class="arrow right"><span>Popular</span></a>
-          </div>
-        </div>
-        <nav class="slider-nav">
-          <ul>
-            <li class="current"><a href="#featured-articles">Featured</a></li>
-            <li><a href="#popular-articles">Popular</a></li>
-            <li><a href="#new-articles">New</a></li>
-            <li><a href="#all-articles">All</a></li>
-          </ul>
-          <span class="highlight"></span>
-        </nav>
-      </div>
-
-    </div>
-  </div>
-</div> <!--/ =========== Background second =========== -->
-
-
-
+</script>

@@ -10,26 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+ *
+ *
  */
 
-/*------- this is the part where you're calling compass for slider to work -------*/
-
-@import "compass";
-
-
-body, html {
-  height: 100%;
-  width : 100%;
-}
-
-/* grid */
-$max-width: 650px;
-$col-gutter: 30px;
-$break-large: 400px;
-$blue: #0380a5;
-$grey: #dfdfde;
 
 /*---------------------------------------------------*/
 
@@ -117,81 +101,7 @@ body {
   padding: 10px;
   margin-top: 150px;
 }
-/*--------------------- image slider ----------------------*/
 
-
-#img-slider {
-overflow: hidden;
-padding: 70px 0 30px;
-
-}
-
-
-
-.clearfix { display:table; line-height:0; content:""; clear:both; }
-.row {
-    max-width:$max-width + $col-gutter; margin:0 auto;
-    .row { margin-left:-$col-gutter; margin-right:-$col-gutter; }
-    .col { @include box-sizing(border-box); padding-left:$col-gutter; padding-right:$col-gutter; }
-    &:after { @extend .clearfix; }
-}
-
-//large grid classes
-@media (min-width:$break-large) {
-    .hide-lrg { display:none; }
-    @for $i from 1 through 12 {
-      .lrg-#{$i} { width:$i/12*100%; float:left; }
-    }
-}
-
-//bbc slider
-.slider-wrap {
-  .slider { height:250px; position:relative; }
-  .outer { position:relative; }
-  .outer, .tray, section { height:100%; }
-  .tray, section { position:absolute; width:100%; height:100%; }
-  section { 
-    background:rgba(#000,0.2); overflow:hidden;
-    img { width:100%; max-width:100%; }
-  }
-  .arrow {
-    position:absolute; top:50%; margin-top:-30px; height:60px; width:60px; z-index:1; cursor:pointer; z-index:15; background-color:black; 
-    &.left {
-      right:-30px; background-image:url(http://www.garethweaver.com/codepen/images/bbc-left.png);
-      span { left:60px; padding:0 20px 0 0; }
-    }
-    &.right {
-      left:-30px; background-image:url(http://www.garethweaver.com/codepen/images/bbc-right.png);
-      span { right:60px; padding:0 0 0 20px;  }
-    }
-    span { height:60px; line-height:60px; background:$blue; position:absolute; display:none; color:#fff;}
-    &:hover {
-      background-color:$blue;
-      span { display:block; }
-    }
-  }
-  .mask {
-    display:block; position:absolute; top:0; height:100%; width:200%; background:rgba(#fff,0.7); z-index:10; cursor:pointer;
-    &.left { right:100%; }
-    &.right { left:100%; }
-  }
-  .slider-nav { 
-    position:relative; font-size:14px; text-align:center; margin:15px 0 0; overflow:hidden;
-    ul { position:relative; margin:0; padding:0; }
-    li {
-      float:left; width:25%; box-sizing:border-box;
-      &.current a { color:$blue; }
-      
-      a {
-        @include transition(color 0.2s ease-in-out); height:60px; line-height:60px; border-top:4px solid $grey; display:block; font-weight:bold; margin:0 4px;
-        &:hover { color:$blue; }
-       }
-      
-    }
-    .highlight { position:absolute; margin:0 4px; top:0; left:0; width:24%; box-sizing:border-box; border-top:4px solid $blue; }
-  }
-  
-}
 /*-------------navbar---------------*/
 
 .navbar {
@@ -248,5 +158,3 @@ padding: 70px 0 30px;
 .dashboard {
   margin: 0 auto;
 }
-
-
