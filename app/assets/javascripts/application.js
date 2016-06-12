@@ -18,7 +18,7 @@
 // availability calendar----------------------------------
 
 
-
+// date range picker
 $(document).on('ready page:load', function() {
 
   $('input[name="reservation[dates]"]').daterangepicker({
