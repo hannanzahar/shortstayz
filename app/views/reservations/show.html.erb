@@ -1,0 +1,50 @@
+<div class="jumbotron">
+	<strong>Booking id number:</strong>
+	<%= @reserve.id %><br>
+
+	<strong>Check in date:</strong>
+	<%= @reserve.check_in %></br>
+
+	<strong>Check out date:</strong>
+	<%= @reserve.check_out %></br>
+</div>
+
+<table class="table table-hover" >
+	<tr>
+		<th><strong>Booking ID number</strong></th>
+		<th><strong>Check in date</strong></th>
+		<th><strong>Check out date</strong></th><br>
+	</tr>
+	
+	<tr><td><%= @reserve.id %></td>
+		<td><%= @reserve.check_in %></td>
+		<td><%= @reserve.check_out %></td><br>
+	</tr>
+</table>
+
+<center>
+    <div style="margin-top: 40px; width: 60%;">
+        <h3> Total booking price: <%= @reserve.amount %>  </h3>
+
+     <!--    <form id="checkout" method="post" action="/reservations/<%= @reserve.id %>/payments">
+            <div id="payment-form"></div>
+            <input type="submit" value="Pay $<%= @reserve.amount %>">
+        </form> -->
+
+        <%= form_for Payment.new, url: reservation_payments_path(@reserve) do |f| %>
+        	<div id="payment-form"></div>
+        	<%= f.submit %>
+        <% end %>
+
+        
+
+        <script type='text/javascript'>function setupBT() {braintree.setup("<%= @client_token %>", "dropin", { container: "payment-form" });}
+
+        	if (window.addEventListener)
+		    window.addEventListener("load", setupBT, false);
+		  else if (window.attachEvent)
+		    window.attachEvent("onload", setupBT);
+		  else window.onload = setupBT;
+        </script>
+    </div>
+</center>

@@ -1,0 +1,17 @@
+<div>
+	<div class="avatar">
+    	<img class="pic img-cricle" src="<%=@user.avatar%>" alt="profile_pic">
+  	</div>
+
+	<strong>First name:</strong><%= @user.first_name %><br>
+	<strong>Last name:</strong><%= @user.last_name %><br>
+	<strong>Email:</strong><%= @user.email %><br>
+	<strong>Address:</strong><%= @user.address %><br>
+	<strong>Phone number:</strong><%= @user.phone_num %><br>
+	<strong>Birthday:</strong><%= @user.birthdate %><br>
+	<strong>Gender:</strong><%= @user.gender %><br>
+
+</div>
+
+<%= link_to 'Edit your profile', 
+	edit_user_path(@user) if current_user == @user %>

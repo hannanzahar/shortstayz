@@ -1,0 +1,54 @@
+
+
+<div>
+	<div class="image">
+		<% @listing.images.each do |y|%>
+			<img class="pic img-cricle" src="<%= y %>" alt="listing_img">
+		<% end %>
+	</div>
+	<div>
+	<%= form_for [@listing, @reserve], html: { autocomplete: 'off' } do |book| %>
+		<%= book.hidden_field :listing_id, value: @listing.id %>
+		<%= book.text_field :dates, placeholder: 'Check In -Check Out' %>
+		<%= book.submit 'Book now' %>
+	<% end %>
+	</div>
+	<div>
+		<strong>Name:</strong>
+		<%= @listing.name %><br>
+
+		<strong>Description:</strong>
+		<%= @listing.description %><br>
+
+		<strong>Address:</strong>
+		<%= @listing.address %><br>
+
+		<strong>Property type:</strong>
+		<%= @listing.property_type %><br>
+
+		<strong>Room:</strong>
+		<%= @listing.room_type %><br>
+
+		<strong>Accomodates:</strong>
+		<%= @listing.num_people %><br>
+
+		<strong>Bedrooms:</strong>
+		<%= @listing.num_bedrooms %><br>
+
+		<strong>Beds:</strong>
+		<%= @listing.num_beds %><br>
+
+		<strong>Bathrooms:</strong>
+		<%= @listing.num_bathrooms %><br>
+
+		<strong>Price:</strong>
+		<%= @listing.price %><br>
+
+		<strong>Tags:</strong>
+		<%= @listing.tag_list %><br>
+	</div>
+</div>
+</hr>
+
+
+

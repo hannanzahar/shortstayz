@@ -1,0 +1,40 @@
+<div id="clearance">
+  <h2><%= t(".title") %></h2>
+
+  <%= form_for @user do |form| %>
+
+    <%= form.label :profile_picture %>
+    <%= form.file_field :avatar %><br>
+
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %><br>
+
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %><br>
+
+    <%= form.label :email %>
+  	<%= form.text_field :email, type: 'email' %><br>
+
+  	<%= form.label :password %>
+  	<%= form.password_field :password %><br>
+
+    <%= form.label :gender %>
+   	<%= form.select :gender, [['Male', 'male'],['Female', 'female']] %><br>
+
+   	<%= form.label :birthday %>
+   	<%= form.date_field :birthdate %><br>
+
+   	<%= form.label :phone_num %>
+   	<%= form.telephone_field :phone_num, placeholder: 'Eg. (012-3456789)' %><br>
+
+   	<%= form.label :address %>
+   	<%= form.text_field :address, placeholder: 'Your address' %><br>
+
+   	<%= form.check_box :subscribe %>
+   	<%= form.label :subscribe %>
+
+    <div class="submit-field">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

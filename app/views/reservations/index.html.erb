@@ -1,0 +1,71 @@
+<p>
+	<div>
+		<div class="image carousel-list slide carousel-inner listing_image">
+			<%@listing.images.each.with_index do |x, i|%>
+				<% if i == 1 %>
+					<div class="item active">
+				<% else %>
+					<div class='item'>
+				<% end %>
+				<%= image_tag x.normal %>
+			</div>
+			<% end %>
+		</div>
+
+		<strong>Name:</strong>
+		<%= @listing.name %><br>
+
+		<strong>Description:</strong>
+		<%= @listing.description %><br>
+
+		<strong>Address:</strong>
+		<%= @listing.address %><br>
+
+		<strong>Property type:</strong>
+		<%= @listing.property_type %><br>
+
+		<strong>Room:</strong>
+		<%= @listing.room_type %><br>
+
+		<strong>Accomodates:</strong>
+		<%= @listing.num_people %><br>
+
+		<strong>Bedrooms:</strong>
+		<%= @listing.num_bedrooms %><br>
+
+		<strong>Beds:</strong>
+		<%= @listing.num_beds %><br>
+
+		<strong>Bathrooms:</strong>
+		<%= @listing.num_bathrooms %><br>
+
+		<strong>Price:</strong>
+		<%= @listing.price %><br>
+
+		<strong>Tags:</strong>
+		<%= @listing.tag_list %><br>
+
+	</div>
+</p>
+
+</hr>
+
+
+
+<table class="table" style="width:100%">
+	<tr>
+		<th><strong>No.</strong>
+		<th><strong>Booking id number</strong></th>
+		<th><strong>Check in date</strong></th>
+		<th><strong>Check out date</strong></th><br>
+	</tr>
+
+	<tr>
+		<td>Number should be here</td>
+		<td><%= @reserve.id %></td>
+		<td><%= @reserve.check_in %></td>
+		<td><%= @reserve.check_out %></td><br>
+	</tr>
+</table>
+
+

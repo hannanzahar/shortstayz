@@ -13,6 +13,31 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+#gem that gives a tagging feature
+gem 'acts-as-taggable-on'
+# gem to gives access on uploading stuffs
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+# gem that smallen the size taken from an image, instead of having a large data of image sizes-- its smallen it.
+gem "mini_magick"
+# gem clearance allows the usage of signin/signup/signout/password verification through the gem itself
+gem "clearance"
+# gem figaro is to securely configure data. Not to be exposed and hackable
+gem "figaro"
+# background jobs for mailing system
+gem "sidekiq"
+# gem for using braintree API
+gem "braintree"
+# gem to get authentication from facebook
+gem 'omniauth'
+gem 'omniauth-facebook'
+# search smarter with elasticsearch ;)
+gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+# country select gem
+gem 'country_select'
+# gem compass for slider
+gem 'compass-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
