@@ -14,6 +14,10 @@
  *
  */
 
+@import url('http://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css');
+
+
 
 /*---------------------------------------------------*/
 
@@ -169,10 +173,10 @@ figure.snip1174 {
   position: relative;
   float: left;
   overflow: hidden;
-  margin: 10px 1%;
+  /*margin: 10px 1%;*/
   min-width: 220px;
-  max-width: 310px;
-  width: 100%;
+  max-width: 400px;
+  width: 111%;
   background-color: #1a1a1a;
   color: #ffffff;
   text-align: left;
@@ -192,7 +196,7 @@ figure.snip1174 img {
 }
 figure.snip1174 figcaption {
   position: absolute;
-  padding: 40px 25px;
+  padding: 10% 30%;
   top: 0;
   left: 0;
 }
@@ -241,6 +245,88 @@ figure.snip1174.hover a {
   opacity: 1;
 }
 
-.image-list {
-  padding-left: -10%;
+/* Dashboard Section */
+.wrapper {
+  display: flex;
+  min-height: 100%;
+  max-height: 435px;
+}
+
+.sidebar {
+  position: absolute;
+  width: 220px;
+  color: #333;
+  background: #333;
+  overflow-x: hidden;
+  height: 640px;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #eee;
+  box-shadow: 0 0 5px rgba(0,0,0,1);
+  transform: translate3d(0,0,0);
+  transition: transform .3s;
+  height: 640px;
+}
+
+.content.isOpen {
+  transform: translate3d(220px,0,0);
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button:before {
+  content: '\f0c9';
+  font: 42px fontawesome;
+}
+
+/* Demo Navigation */
+
+.title {
+  font-size: 16px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  color: #eee;
+  border-bottom: 1px solid #222;
+  background: #2a2a2a;
+}
+
+.nav li a {
+  position: relative;
+  display: block;
+  padding: 15px 15px 15px 50px;
+  font-size: 12px;
+  color: #eee;
+  border-bottom: 1px solid #222;
+}
+
+.nav li a:before {
+  font: 14px fontawesome;
+  position: absolute;
+  top: 14px;
+  left: 20px;
+}
+
+.nav li:nth-child(1) a:before { content: '\f00a'; }
+.nav li:nth-child(2) a:before { content: '\f012'; }
+.nav li:nth-child(3) a:before { content: '\f0e8'; }
+.nav li:nth-child(4) a:before { content: '\f0c3'; }
+.nav li:nth-child(5) a:before { content: '\f022'; }
+.nav li:nth-child(6) a:before { content: '\f115'; }
+.nav li:nth-child(7) a:before { content: '\f085'; }
+.nav li:nth-child(8) a:before { content: '\f023'; left: 23px; }
+
+.nav li a:hover {
+  background: #444;
+}
+
+.nav li a.active {
+  box-shadow: inset 5px 0 0 #5b5, inset 6px 0 0 #222;
+  background: #444;
 }
