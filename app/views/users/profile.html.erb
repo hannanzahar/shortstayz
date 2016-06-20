@@ -3,38 +3,120 @@
     <div class='title'>
       <%= current_user.first_name %> <%= current_user.last_name%>
     </div>
-    <ul class='nav'>
+    <ul class='nav-dashboard' style="padding-left: 0px;">
+      <li class='active'>
+        <a data-toggle="tab" id="1" href="#dashboard">Dashboard</a></li>
       <li>
-        <a class='active'>Dashboard</a>
-      </li>
-
+        <a data-toggle="tab" id="2" href="#profile">Profile</a></li>
       <li>
-        <a>Profile</a>
-      </li>
-
+        <a data-toggle="tab" id="3" href="#edit_profile">Edit Profile</a></li>
       <li>
-        <a>Edit Profile</a>
-      </li>
-
+        <a data-toggle="tab" id="4" href="#new_listings">New Listing</a></li>
       <li>
-        <a>Listings</a>
+        <a data-toggle="tab" id="5" href="#listings">Listings</a>
       <!-- Provide create new listing, update listing, listing's reviews -->
-      </li>
+	      <ul class="dropdown-1">
+	          <li><a href="#"><i class="ion-email"></i><span>Read</span></a></li>
+	          <li><a href="#"><i class="ion-email-unread"></i><span>Unread</span></a></li>
+	          <li><a href="#"><i class="ion-plus"></i><span>Create Message</span></a></li>
+	      </ul>
+	    </li>
 
       <li>
-        <a>Bookings</a>
+        <a data-toggle="tab" id="6" href="#bookings">Bookings</a>
       <!-- Provide latest booking, past bookings & listing -->
       </li>
 
     </ul>
   </div>
-  <div class='content isOpen'>
+  <div class='tab-content content isOpen'>
     <a class='button'></a>
-    <h1>Flexbox Off Canvas Menu</h1>
-    <h2>Lightweight, simple, easy to use</h2>
-  </div>
-  <div>
-  	
+
+    <div id="dashboard" class="fade in active">
+	    <h1>Dashboard</h1>
+	    <h2>Lightweight, simple, easy to use</h2>
+	    <h3>Your notifications etc is here</h3>
+	  </div>
+
+    <div id="profile" class="fade" style="text-align: center;">
+    	<div class="avatar">
+    		<img class="pic img-cricle" src="<%=@user.avatar%>" alt="profile_pic">
+  		</div>
+  		<div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
+				<h1 id="title"><%= @user.first_name %> <%= @user.last_name %></h1>
+				<strong>Email:</strong><%= @user.email %><br>
+				<strong>Address:</strong><%= @user.address %><br>
+				<strong>Phone number:</strong><%= @user.phone_num %><br>
+				<strong>Birthday:</strong><%= @user.birthdate %><br>
+				<strong>Gender:</strong><%= @user.gender %><br>
+			</div>
+		</div>
+
+    <div id="edit_profile" class="fade">
+    	<h1>Edit Profile</h1>
+		  <%= render file: '/users/edit' %>
+  	</div>
+
+    <div id="new_listings" class="fade">
+    	<h1>New Listing</h1>
+		  <%= render file: 'listings/new' %>
+    </div>
+
+    <div id="listings" class="fade">
+    	<h1>Listings</h1>
+    	<% if @user.listings.exists? %>
+	    	<% @user.listings.each do |x| %>
+					<div class="image">
+						<% x.images.each do |y|%>
+							<img class="pic img-cricle" src="<%= y %>" alt="listing_img">
+						<% end %>
+					</div>
+					<div>
+
+						<strong>Name:</strong>
+						<%= x.name %><br>
+
+						<strong>Description:</strong>
+						<%= x.description %><br>
+
+						<strong>Address:</strong>
+						<%= x.address %><br>
+
+						<strong>Property type:</strong>
+						<%= x.property_type %><br>
+
+						<strong>Room:</strong>
+						<%= x.room_type %><br>
+
+						<strong>Accomodates:</strong>
+						<%= x.num_people %><br>
+
+						<strong>Bedrooms:</strong>
+						<%= x.num_bedrooms %><br>
+
+						<strong>Beds:</strong>
+						<%= x.num_beds %><br>
+
+						<strong>Bathrooms:</strong>
+						<%= x.num_bathrooms %><br>
+
+						<strong>Price:</strong>
+						<%= x.price %><br>
+
+						<strong>Tags:</strong>
+						<%= x.tag_list %><br>
+					</div>
+				<% end %>
+			<% else %>
+				<h4>Create new listing</h4>
+			<% end %>
+    </div>
+
+    <div id="bookings" class="fade">
+    	<h1>Bookings</h1>
+		  <%= render file: 'reservations/index' %>
+    </div>
+
   </div>
 </div>
 
@@ -44,4 +126,15 @@
 	    $('.content').toggleClass('isOpen');
 	  });
 	});
+
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function($) {
+	$("li.dropdown").hover(function() {
+		var id = $(this).attr("rel");
+		$(this).toggleClass("active");
+		$("ul.dropdown-" + id).toggle("fade", 250);
+	});
+});
 </script>

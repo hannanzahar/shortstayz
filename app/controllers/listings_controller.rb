@@ -25,9 +25,13 @@ class ListingsController < ApplicationController
   # end
 
 	def create
-		@listing = current_user.listings.new(new_params)
-		@listing.save
-		redirect_to listing_path(@listing)
+		@listing = current_user.listings.new(listing_params)
+		if @listing.save
+			flash[:success] = "Created successfully!"
+		else
+			flash[:warning] = @listing.errors
+		end
+		redirect_to my_profile_path
 	end
 
 
@@ -49,7 +53,7 @@ class ListingsController < ApplicationController
 			if @listing.save
 				redirect_to listing_path
 			else
-				flash[:warning] = "WHYYYY WHYYY"
+				flash[:warning] = "Not updated, please update again."
 				render :edit
 			end
 	end
@@ -76,13 +80,13 @@ class ListingsController < ApplicationController
 	   	:state, :city, :address, :property_type,
 	   	:room_type, :num_people, :num_bedrooms, 
 	   	:num_beds, :num_bathrooms, :price, 
-	   	{tag_list: []}, {images: []}, :reservations)
+	   	:tag_list, {images: []}, :reservations)
 
 	 end
 
 	 def new_params
 	 	hash = listing_params.dup
-		hash[:tag_list] = hash[:tag_list].join(',')
+	 	hash[:tag_list] = hash[:tag_list].join(',')
 		return hash
 	 end
 end

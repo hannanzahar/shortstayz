@@ -8,38 +8,47 @@
   <% end %>
 </div>
 
-<% @listing.each do |x| %>
-	<div class="image">
-		<% x.images.each do |y|%>
-			<img class="pic img-cricle" src="<%= y %>" alt="listing_img">
-		<% end %>
+
+<div class="Content">
+	<div class="Wrapper">
+		<div class="col-md-6 LeftContent" style=" height: 97%;">
+			<% @listing.each do |x| %>
+
+
+				<div class="image">
+			
+						<img class="pic img-cricle" src="<%= x.images.first %>" alt="listing_img">
+					
+				</div>
+
+				<h2>
+					</b><%= link_to x.name, x %>
+				</h2>
+					<p>
+						<b>Description: </b>
+						<%= x.description %>
+					</p>
+					<p>
+						<b>Country: </b>
+						<%= x.country %>
+					</p>
+					<p>
+						<b>City: </b>
+						<%= x.city %>
+					</p>
+
+
+					<% unless @user.id != x.user_id %>
+						<p><%= link_to 'Edit property details', edit_user_listing_path(current_user, x.id)  %> |
+						<%= link_to "Delete now!", user_listing_path(current_user, x.id), method:"delete" %></p>
+					<% end %>
+
+
+				Tags: <%= raw x.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+
+				<hr/>
+
+			<% end %>
+		</div>
 	</div>
-
-	<h2>
-		</b><%= link_to x.name, x %>
-	</h2>
-		<p>
-			<b>Description: </b>
-			<%= x.description %>
-		</p>
-		<p>
-			<b>Country: </b>
-			<%= x.country %>
-		</p>
-		<p>
-			<b>City: </b>
-			<%= x.city %>
-		</p>
-
-
-		<% unless @user.id != x.user_id %>
-			<p><%= link_to 'Edit property details', edit_listing_path(x.id)  %> |
-			<%= link_to "Delete now!", listing_path(x.id), method:"delete" %></p>
-		<% end %>
-
-
-	Tags: <%= raw x.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-
-	<hr/>
-
-<% end %>
+</div>
