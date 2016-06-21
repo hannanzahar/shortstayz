@@ -4,9 +4,6 @@
 
 
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" 
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-  integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" >
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"
   crossorigin="anonymous">
   <link rel="stylesheet" 
@@ -17,7 +14,6 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
   <script src="https://js.braintreegateway.com/js/braintree-2.24.0.min.js"></script>
 
@@ -43,7 +39,6 @@
           <% if signed_in? %>
           <li role="presentation" class="active"><%= link_to t(".home"), welcome_index_path %></li>
           <li role="presentation"><%= link_to t(".dashboard"), '/profile' %></li>
-          <li role="presentation"><%= link_to t(".new_listing"), new_listing_path%></li>
           <li role="presentation"><%= link_to t(".book_now"), listings_path%></li>
           <li role="presentation"><%= link_to t(".sign_out"), sign_out_path, method: :delete %></li>
           <% else %>
