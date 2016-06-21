@@ -7,6 +7,7 @@ class UsersController < Clearance::UsersController
 
 	def profile
 		@user = current_user
+		@reservations = @user.reservations
 	end
 
 	def edit
@@ -19,7 +20,7 @@ class UsersController < Clearance::UsersController
 		if @user.update(user_params)
 			redirect_to user_path(@user)
 		else
-			flash[:warning] = "Y U DO DIS"
+			flash[:warning] = "Not updated, please update again."
 			render :edit
 		end
 
@@ -37,7 +38,7 @@ class UsersController < Clearance::UsersController
 
 	def check_user
 		unless current_user == User.find(params[:id])
-			flash[:warning] = 'Y U DO DIS AGAIN'
+			flash[:warning] = 'Please Login with your account'
 			redirect_to '/'
 		end
 	end
