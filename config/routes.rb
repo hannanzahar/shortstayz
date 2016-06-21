@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#search'
 
-  resources :listings do
+  resources :listings, only: [:show, :index] do
     resources :reservations
   end
 
@@ -25,8 +25,9 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get 'welcome/index'
-  resources :users, only: [:show, :edit, :update, :destroy]
-  resources :listings
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    resources :listings, except: [:show, :index]
+  end
 
 #to create a new dashboard/profile for user
   get '/profile', to: "users#profile", as: "my_profile"
