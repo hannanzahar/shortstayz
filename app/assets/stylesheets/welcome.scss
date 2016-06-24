@@ -2,3 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.hero {
+  position: relative;
+  height: 500px;
+}
+
+.hero_background {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+video#bgvid {
+  height: auto;
+  width: 100%;
+}
+
+.typing {
+    margin-top: -300px;
+    margin-bottom: 300px;
+    z-index: 1000;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-family: 'Raleway', sans-serif;
+
+}

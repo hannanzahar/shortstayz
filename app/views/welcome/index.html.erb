@@ -1,5 +1,29 @@
 <div>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="hero">
+    <div class="hero_background">
+      <div class="video_header">
+        <video autoplay  poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" loop>
+          <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+          <source src="//demosthenes.info/assets/videos/polina.webm" type="video/webm">
+          <source src="//demosthenes.info/assets/videos/polina.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+  <div class="typing">
+  <h1>Shortstayz is
+  <span
+     class="txt-rotate"
+     data-period="2000"
+     data-rotate='[ "Adventure.", "Local.", "Fun.", "You!" ]'></span>
+   </h1>
+   <h2>A short stay you need.</h2>
+ </div>
+
+
+
+
+  <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
    <div class="carousel-inner">
      <div class="item active">
        <div class= "carousel-caption">
@@ -19,9 +43,9 @@
    </div>
    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-  </div>
+  </div> -->
 
-  <div class="search">
+  <!-- <div class="search">
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -83,7 +107,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   </br>
 
@@ -315,4 +339,94 @@
     }
   );
 
+</script>
+
+<script>
+var vid = document.getElementById("bgvid");
+var pauseButton = document.querySelector("#polina button");
+
+function vidFade() {
+vid.classList.add("stopfade");
+}
+
+vid.addEventListener('ended', function()
+{
+// only functional if "loop" is removed
+vid.pause();
+// to capture IE10
+vidFade();
+});
+
+
+pauseButton.addEventListener("click"  , function() {
+vid.classList.toggle("stopfade");
+if (vid.paused) {
+vid.play();
+pauseButton.innerHTML = "Pause";
+} else {
+vid.pause();
+pauseButton.innerHTML = "Paused";
+}
+})
+
+
+</script>
+
+<script>
+var TxtRotate = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 300 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
 </script>
