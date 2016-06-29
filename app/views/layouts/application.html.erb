@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"
   crossorigin="anonymous">
-  <link rel="stylesheet"
+  <!-- <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
   integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
-  crossorigin="anonymous">
+  crossorigin="anonymous"> -->
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -36,9 +36,9 @@
         </button>
       </div>
       <div class="collapse navbar-collapse navbar-menubuilder">
-        <ul class="nav navbar-nav navbar-left">
+        <ul class="nav navbar-nav navbar-right">
           <% if signed_in? %>
-          <li role="presentation" class="active"><%= link_to t(".home"), welcome_index_path %></li>
+          <li role="presentation"><%= link_to t(".home"), welcome_index_path %></li>
           <li role="presentation"><%= link_to t(".dashboard"), '/profile' %></li>
           <li role="presentation"><%= link_to t(".book_now"), listings_path%></li>
           <li role="presentation"><%= link_to t(".sign_out"), sign_out_path, method: :delete %></li>
