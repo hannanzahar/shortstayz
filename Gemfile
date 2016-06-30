@@ -38,7 +38,8 @@ gem 'elasticsearch-rails'
 gem 'country_select'
 # gem compass for slider
 gem 'compass-rails'
-
+# gem using geocoder
+gem 'geocoder'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

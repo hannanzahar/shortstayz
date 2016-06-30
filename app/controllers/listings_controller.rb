@@ -2,8 +2,9 @@ class ListingsController < ApplicationController
 
 	def index
 		@user = current_user
-		if params[:tag]
+		if params[:tag] && params[:search].present?
 			@listing = Listing.tagged_with(params[:tag])
+			@listing = Listing.near(params[:search], 50, :order => :distance)
 		else
 			@listing = Listing.all
 		end

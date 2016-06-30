@@ -45,6 +45,10 @@
 		<strong>Tags:</strong>
 		<%= @listing.tag_list %><br>
 	</div>
+
+	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@listing.latitude}%2C#{@listing.longitude}" %>
+
+
 </div>
 </hr>
 
