@@ -29,5 +29,5 @@ class Listing < ActiveRecord::Base
 	include Elasticsearch::Model::Callbacks
 end
 
-Listing.import force: true
+# Listing.import force: true
 #for auto sync model with elastic search

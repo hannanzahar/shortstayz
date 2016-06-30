@@ -45,18 +45,6 @@ ActiveRecord::Schema.define(version: 20160516095416) do
     t.json     "images"
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "reservation_id"
-    t.integer "amount"
-  end
-
-  create_table "reservation_tables", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "listing_id"
-    t.string  "book_date"
-  end
-
   create_table "reservations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

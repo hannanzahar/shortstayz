@@ -15,7 +15,7 @@
 		<th><strong>Check in date</strong></th>
 		<th><strong>Check out date</strong></th><br>
 	</tr>
-	
+
 	<tr><td><%= @reserve.id %></td>
 		<td><%= @reserve.check_in %></td>
 		<td><%= @reserve.check_out %></td><br>
@@ -36,15 +36,14 @@
         	<%= f.submit %>
         <% end %>
 
-        
+
 
         <script type='text/javascript'>function setupBT() {braintree.setup("<%= @client_token %>", "dropin", { container: "payment-form" });}
-
         	if (window.addEventListener)
-		    window.addEventListener("load", setupBT, false);
-		  else if (window.attachEvent)
-		    window.attachEvent("onload", setupBT);
-		  else window.onload = setupBT;
+		    		window.addEventListener("load", setupBT, false);
+		  		else if (window.attachEvent)
+		    		window.attachEvent("onload", setupBT);
+		  		else window.onload = setupBT;
         </script>
     </div>
 </center>

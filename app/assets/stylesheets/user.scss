@@ -40,7 +40,8 @@
 
 body {
   padding-bottom: 40px;
-  background-color: #e3e3e3;
+  background-color: white;
+
 }
 
 .carousel {
@@ -65,7 +66,6 @@ body {
   top: 0;
   left: 0;
   min-width: 100%;
- 
 }
 
 .listing_image > .item > img {
@@ -73,17 +73,16 @@ body {
   top: 0;
   left: 0;
   min-width: 0%;
- 
 }
 .search {
   margin-top: -25%;
 }
 .search .form-section{
-  background:rgba(0,0,0,0.6);
-  border: 2px solid #414141;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 150px;
+  // background:rgba(0,0,0,0.6);
+  // border: 1px solid #414141;
+  // border-radius: 5px;
+  padding: 16px;
+  margin-top: 16px;
 }
 
 /*-------------navbar---------------*/
@@ -115,6 +114,8 @@ body {
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700);
 
 figure.snip1174 {
+  border: solid;
+  border-width: thick;
   font-family: 'Raleway', Arial, sans-serif;
   color: #fff;
   position: relative;
@@ -276,4 +277,3 @@ figure.snip1174.hover a {
   box-shadow: inset 5px 0 0 #5b5, inset 6px 0 0 #222;
   background: #444;
 }
-
