@@ -68,7 +68,7 @@
           </div>
           <div class="card-details">
             <h2 ><%= link_to x.name, x, :style=>'color: black;'%></h2>
-            <h3>The city that never sleeps.</h3>
+            <h3><%= x.city %>, <%= x.country %></h3>
             <p><%= x.description %></p>
             <div class="post-meta">
               <!-- <span class="timestamp">
