@@ -1,52 +1,127 @@
-<div>
-	<div class="image">
-		<% @listing.images.each do |y|%>
-			<img class="pic img-cricle" src="<%= y %>" alt="listing_img">
-		<% end %>
+
+
+
+<!-- <div class="container"> -->
+		<!-- <div class="row"> -->
+
+		<!-- </div> -->
+<!-- </div> -->
+
+<div class="page-container-responsive">
+	<div class="col-lg-12">
+			<h2 class="listing"></h2><span style="font-size: -webkit-xxx-large; font-family: 'Arima Madurai', cursive;"><%= @listing.name %></span><span style="font-family: 'Scope One', serif;"> <%= @listing.address %></span>
+			<!-- <hr> -->
 	</div>
-	<div>
-		<%= form_for [@listing, @reserve], html: { autocomplete: 'off' } do |book| %>
-			<%= book.hidden_field :listing_id, value: @listing.id %>
-			<%= book.text_field :dates, placeholder: 'Check In -Check Out' %>
-			<%= book.submit 'Book now' %>
-		<% end %>
+
+	<div class="col-lg-8" style="padding-bottom: 30px;" >
+		<div class="row">
+			<div class="carousel slide article-slide" id="article-photo-carousel">
+
+			<!-- Wrapper for slides -->
+		  	<div class="carousel-inner cont-slider listings">
+					<% @listing.images.each_with_index do |y, i|%>
+						<% if i == 0 %>
+							<div class="item listings active">
+								<img class="pic img-cricle listings" src="<%= y %>" alt="listing_img">
+		    			</div>
+						<% else %>
+							<div class="item listings">
+								<img class="pic img-cricle listings" src="<%= y %>" alt="listing_img">
+							</div>
+						<% end %>
+					<% end %>
+		  	</div>
+
+			<!-- Indicators -->
+		  	<ol class="carousel-indicators">
+					<% @listing.images.each_with_index do |y, i|%>
+						<% if i == 0 %>
+		    			<li class="active" data-slide-to="0" data-target="#article-photo-carousel">
+								<img class="pic img-cricle" src="<%= y %>" alt="listing_img">
+		    			</li>
+						<% else %>
+							<li class="" data-slide-to="<%= i %>" data-target="#article-photo-carousel">
+			      		<img class="pic img-cricle" src="<%= y %>" alt="listing_img">
+			    		</li>
+						<% end %>
+					<% end %>
+		  	</ol>
+			</div>
+		</div>
+
+		<!-- <hr class="about_row"> -->
+		<br>
+		<div class="row about">
+
+			<h4 class="about_listing">About the listing</h4>
+			<div class="col-md-12">
+				<%= @listing.description %>
+			</div>
+			<br>
+			<hr class="after_about">
+
+			<div class="col-md-3">
+				The Rumah
+			</div>
+			<div class="col-md-9">
+				<div class="col-md-6">
+					Property type: <%= @listing.property_type %><br>
+					Room: <%= @listing.room_type %><br>
+					Accomodates: <%= @listing.num_people %><br>
+				</div>
+				<div class="col-md-6">
+					Bedrooms: <%= @listing.num_bedrooms %><br>
+					Beds: <%= @listing.num_beds %><br>
+					Bathrooms: <%= @listing.num_bathrooms %><br>
+				</div>
+			</div>
+			<!-- Tags: <%= @listing.tag_list %><br> -->
+			<br>
+			<br><br>
+			<hr class="after_about">
+
+		</div>
+
+		<!-- <hr class="about_row"> -->
+		<br>
+		<div class="row review">
+			<h4 class="about_listing">Review</h4>
+			<!-- Insert reviews here -->
+			<hr class="after_about">
+		</div>
 	</div>
-	<div>
-		<strong>Name:</strong>
-		<%= @listing.name %><br>
 
-		<strong>Description:</strong>
-		<%= @listing.description %><br>
 
-		<strong>Address:</strong>
-		<%= @listing.address %><br>
+	<div class="col-lg-4 booking">
+		<div class="booking_box">
+			<h6 style="padding: 6px 15px; font-size: 20px;">RM<strong><%= @listing.price %> per night</strong></h6>
+			<%= form_for [@listing, @reserve], html: { autocomplete: 'off' } do |book| %>
+				<%= book.hidden_field :listing_id, value: @listing.id %>
+				<%= book.text_field :dates, placeholder: 'Check In -Check Out' %>
+				<%= book.submit 'Book now', class:"book_now_button"%>
+			<% end %>
 
-		<strong>Property type:</strong>
-		<%= @listing.property_type %><br>
+			<div class="contact_host">
+				<h6>Host Contact Information</h6>
+			</div>
+		</div>
 
-		<strong>Room:</strong>
-		<%= @listing.room_type %><br>
-
-		<strong>Accomodates:</strong>
-		<%= @listing.num_people %><br>
-
-		<strong>Bedrooms:</strong>
-		<%= @listing.num_bedrooms %><br>
-
-		<strong>Beds:</strong>
-		<%= @listing.num_beds %><br>
-
-		<strong>Bathrooms:</strong>
-		<%= @listing.num_bathrooms %><br>
-
-		<strong>Price:</strong>
-		<%= @listing.price %><br>
-
-		<strong>Tags:</strong>
-		<%= @listing.tag_list %><br>
+		<div style="clear:both;"></div>
 	</div>
 </div>
-</hr>
+
+<div class="col-lg-12 others">
+
+Other listings
+
+</div>
 
 
+<div style="clear:both;"></div>
 
+<script>
+// Stop carousel
+$('.carousel').carousel({
+  interval: false
+});
+</script>

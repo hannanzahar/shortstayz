@@ -44,29 +44,29 @@ body {
 
 }
 
-.carousel {
-  height: 500px;
-  margin-bottom: 60px;
-}
-
-.carousel-list {
-  align-items: center;
-  position: absolute;
-  height: 300px;
-  width: 300px;
-}
-
-.carousel .item {
-  height: 500px;
-  background-color: #777;
-}
-.carousel-inner > .item > img {
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-}
+// .carousel {
+//   height: 500px;
+//   margin-bottom: 60px;
+// }
+//
+// .carousel-list {
+//   align-items: center;
+//   position: absolute;
+//   height: 300px;
+//   width: 300px;
+// }
+//
+// .carousel .item {
+//   height: 500px;
+//   background-color: #777;
+// }
+// .carousel-inner > .item > img {
+//   align-items: center;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   min-width: 100%;
+// }
 
 .listing_image > .item > img {
   position: absolute;
@@ -114,14 +114,14 @@ body {
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700);
 
 figure.snip1174 {
-  border: solid;
-  border-width: thick;
+  // border: solid;
+  // border-width: thick;
   font-family: 'Raleway', Arial, sans-serif;
   color: #fff;
   position: relative;
   float: left;
   overflow: hidden;
-  /*margin: 10px 1%;*/
+  /*margin: 10px 1%r;*/
   min-width: 220px;
   max-width: 400px;
   width: 111%;

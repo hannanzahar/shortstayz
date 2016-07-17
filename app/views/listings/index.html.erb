@@ -1,14 +1,18 @@
-<h3>Welcome back <b><%= current_user.first_name %></b>!</h3>
-<h2>These are all the listings</h2>
+<div class="col-md-10 col-md-offset-1" style="padding: 10px;text-align: center; margin-top: 20px;">
+  <h2 class="listings_title">Rumah to Stayz</h2>
+</div>
 
-<div id="tag_cloud" style="width:100%">
+<!-- <h3>Welcome back <b><%= current_user.first_name %></b>!</h3> -->
+<!-- <h2>These are all the listings</h2> -->
+
+<!-- <div id="tag_cloud" style="width:100%">
   <% tag_cloud Listing.tag_counts, %w[s m l] do |tag, css_class| %>
   <%= "|" %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
-</div>
+</div> -->
 
-
+<!--
 <div class="Content">
 	<div class="Wrapper">
 		<div class="col-md-6 LeftContent" style=" height: 97%;">
@@ -16,9 +20,9 @@
 
 
 				<div class="image">
-			
+
 						<img class="pic img-cricle" src="<%= x.images.first %>" alt="listing_img">
-					
+
 				</div>
 
 				<h2>
@@ -51,4 +55,48 @@
 			<% end %>
 		</div>
 	</div>
-</div>
+</div> -->
+<!-- <div class="row"> -->
+  <div class="col-md-10 col-md-offset-1">
+    <% @listing.each do |x| %>
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-image" src="<%= x.images.first %>" alt="listing_img">
+          <div class="card-meta">
+            <span class="tag">Photos</span>
+            <span class="date"><span>27 <em>Mar</em></span></span>
+          </div>
+          <div class="card-details">
+            <h2 ><%= link_to x.name, x, :style=>'color: black;'%></h2>
+            <h3><%= x.city %>, <%= x.country %></h3>
+            <p><%= x.description %></p>
+            <div class="post-meta">
+              <!-- <span class="timestamp">
+                <i class="fa fa-clock-o"></i>
+                6 mins ago
+              </span> -->
+              <span class="comments">
+                <i class="fa fa-comments"></i>
+                <a href="#">39 reviews</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<!-- </div> -->
+
+
+
+
+
+<div style="clear:both;"></div>
+
+
+
+
+
+<!--http://codepen.io/andytran/pen/bdpYBv  -->
+<!-- // Original Pen (Uses jQuery so that you don't need a specific height.)
+// http://codepen.io/andytran/pen/BNjymy -->
