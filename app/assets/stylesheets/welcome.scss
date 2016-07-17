@@ -121,6 +121,7 @@ button#submit_search {
 .navbar-default .navbar-nav > li > a {
     color: white;
     z-index: 1000;
+
 }
 
 .navbar {
@@ -129,7 +130,7 @@ button#submit_search {
 }
 
 .navbar-default {
-    background-color: rgb(0, 0, 0);
+    background-color: #4584f7;
     border-radius: 0;
 }
 
@@ -263,7 +264,7 @@ footer {
 }
 
 footer h1, footer h2, footer h3, footer h4 {
-    color: #ddd;
+    color: #7d7d7d;
     font-weight: 300;
 }
 p, ul {
@@ -272,7 +273,11 @@ p, ul {
 }
 
 a {
-    color: #525252;
+    color: #cec4c4;
+}
+
+a:hover {
+    color: aqua;
 }
 
 a:link, a:visited {
